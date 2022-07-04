@@ -17,34 +17,19 @@
 }
 </style>
 <body>
-    <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
-        <p>Drag one or more files here</p>
-      </div>
+    <button id="getMeTheData">Fetch data</button>
+    <p id="result"></p>
 </body>
 <script>
-    function dropHandler(ev) {
-  console.log('File(s) dropped!');
+    const btn = document.getElementById('getMeTheData');
+const p = document.getElementById('result');
 
-  ev.preventDefault();
-
-  if (ev.dataTransfer.items) {
-    for (var i = 0; i < ev.dataTransfer.items.length; i++) {
-      if (ev.dataTransfer.items[i].kind === 'file') {
-        const file = ev.dataTransfer.items[i].getAsFile();
-        console.log('... file[' + i + '].name = ' + file.name);
-      }
-    }
-  } else {
- 
-    for (var i = 0; i < ev.dataTransfer.files.length; i++) {
-      console.log('... file[' + i + '].name = ' + ev.dataTransfer.files[i].name);
-    }
-  }
+const getData = async () => {
+  const random = Math.floor(Math.random() * 15);
+  const response = await fetch(`https://swapi.dev/api/people/${random}`);
+  const data = await response.json();
+  p.innerHTML = data.name;
 }
-
-function dragOverHandler(ev) {
-  console.log('File(s) in drop zone!');
-  ev.preventDefault();
-}
+btn.addEventListener('click', getData);
 </script>
 </html>
