@@ -1,35 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-<style>
-    #drop_zone {
-  border: 5px solid blue;
-  width:  200px;
-  height: 100px;
-  padding: 10px;
-  text-align: center;
-}
-</style>
 <body>
-    <button id="getMeTheData">Fetch data</button>
-    <p id="result"></p>
+  <header>
+    <h1>Welcome to my page</h1>
+  </header>
+  <article>
+    <header>
+      <p>Article written by Tamas</p>
+      <img src="https://res.cloudinary.com/tamas-demo/image/upload/w_100,h_100,dpr_auto,q_auto,f_auto,r_max,c_thumb,g_face/tamas.jpg" />
+    </header>
+    <p>Article content goes here ....</p>
+  </article>
 </body>
-<script>
-    const btn = document.getElementById('getMeTheData');
-const p = document.getElementById('result');
-
-const getData = async () => {
-  const random = Math.floor(Math.random() * 15);
-  const response = await fetch(`https://swapi.dev/api/people/${random}`);
-  const data = await response.json();
-  p.innerHTML = data.name;
-}
-btn.addEventListener('click', getData);
-</script>
 </html>
