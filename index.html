@@ -6,20 +6,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+<style>
+  .forecast {
+    margin: 0;
+    padding: .3rem;
+    background-color: #eee;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+.forecast > h1,
+.day-forecast {
+    margin: .5rem;
+    padding: .3rem;
+    font-size: 1.2rem;
+}
+
+.day-forecast {
+    background: right/contain content-box border-box no-repeat
+        url('https://res.cloudinary.com/tamas-demo/image/upload/v1598354118/bbpxu4ar7nsrhda8uewq.png') white;
+}
+
+.day-forecast > h2,
+.day-forecast > p {
+    margin: .2rem;
+    font-size: 1rem;
+}
+
+
+</style>
 <body>
 
-  <main>
-    <h1>Scrambled Eggs</h1>
-    <ul>
-      <li>eggs</li>
-      <li>pepper</li>
-      <li>oil</li>
-    </ul>
-    <p>Learn how to prepare scambled eggs!</p>
-    <section>
-      <p>The process of creating the eggs is simple ...</p>
-    </section>
-  </main>
+  <!-- sample/idea taken from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article -->
+<article class="forecast">
+  <h1>Weather forecast for Seattle</h1>
+  <article class="day-forecast">
+      <h2>03 September 2020</h2>
+      <p>Rain.</p>
+  </article>
+  <article class="day-forecast">
+      <h2>04 September 2020</h2>
+      <p>Periods of rain.</p>
+  </article>
+  <article class="day-forecast">
+      <h2>05 September 2018</h2>
+      <p>Heavy rain.</p>
+  </article>
+</article>
 
 </body>
 </html>
