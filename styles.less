@@ -1,0 +1,17 @@
+@size: 36px;
+@xl: @size + 10px;
+@colour: pink;
+
+.addBorder {
+  border: 1px solid @colour;
+}
+
+h1 {
+  font-size: @xl;
+  .addBorder()
+}
+
+p {
+  .addBorder();
+  color: red;
+}
