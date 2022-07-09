@@ -1,1 +1,1 @@
-console.log("Brendan Eich (1985)")
+console.log("ECMAScript (ECMA International");
