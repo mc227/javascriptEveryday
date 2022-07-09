@@ -1,1 +1,1 @@
-console.log("ECMAScript (ECMA International");
+console.log("Block scope")
