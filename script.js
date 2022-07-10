@@ -1,41 +1,33 @@
-// hoisting
-// var number;
+if (true) {
+  const num = 1;
+  console.log(num);
+  // num = 2; // Assignment to constant variable.
+  console.log(num); // 1 not printed
+}
+  
 
-// number = 1;
-// console.log(number);
-// console.log(window);
-// var number = 1; // LHS RHS
+// const name = 'John';
+// name = 'Susan';
+// console.log(name);
 
-// number = 1;
+// const myObj = {
+//   name: 'John'
+// };
 
-// console.log(number);
+// myObj.name = 'Susan';
+// console.log(myObj);
 
-// number = 1;
-// console.log(number);
-// var number;
-// var myVariable
 
-// console.log(myVariable);
-// myVariable = 2;
-
-// var x = 3;
-// if (true) {
-//   var x = 2;
-//   console.log(x)
+// {
+//   const myName = 'Steve'; 
+//   const abc = 'Test';  
+//   console.log(myName)
 // }
-// // var x = 3;
-// console.log(x)
 
+// const person = Object.freeze({
+//    name: 'John'
+// });
 
-
-var a = [];
-
-(function() {
-   'use strict';
-   for (let i = 0; i < 5; ++i) { // *** `let` works as expected *** // i = 5
-     a.push( function() {return i;} );
-   }
-}()); // IIFE "iffy"
-console.log(a.map(function(f) {
-  return f();
-}));
+// person.name = 'Samuel';
+// person.age = 23;
+// console.log(person.name, person.age);
