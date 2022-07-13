@@ -1,39 +1,41 @@
-// // hoisting
-// var number;
+if (true) {
+  let x = 1;
+}
 
-// number = 1;
-// console.log(number);
-// // console.log(window);
-// var number = 1; // LHS RHS
+console.log(x)
 
-// number = 1;
-
-// console.log(number);
-
-// number = 1;
-// console.log(number);
-// var number;
-// var myVariable
-
-// console.log(myVariable);
-// myVariable = 2;
-
-// var x = 3;
-// if (true) {
-//   var x = 2;
-//   console.log(x)
+// let x;
+// {
+//   x = 1;
+//   console.log("first block", x);
 // }
-// console.log(x)
+// {
+//   x = 2;
+//   console.log("second block", x);
+// }
+// x = 3;
+// console.log("outside the block", x);
 
-var a = [];
-// let a = [];
+// if (1 === 1) {
+//   let anotherNumber = 2
+  
+// }
 
-(function() {
-   'use strict';
-   for (let i = 0; i < 5; ++i) { // *** `let` works as expected *** // i = 5
-     a.push( function() {return i;} );
-   }
-}()); // IIFE "iffy"
-console.log(a.map(function(f) {
-  return f();
-}));
+// console.log(anotherNumber);
+
+// {
+//   let y = 10;
+//   console.log(y);
+//   let y = 20; // Uncaught SyntaxError: Identifier 'y' has already been declared
+//   // y = 20;
+//   console.log(y);
+// }
+
+
+// let x = 1;
+// try {
+//   console.log('X in try', x)
+//   throw new Error('error')
+// } catch (error) {
+//   console.log('X in catch', x)
+// }
