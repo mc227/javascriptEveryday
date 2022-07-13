@@ -1,14 +1,14 @@
-if (true) {
-  let x = 1;
-}
-
-console.log(x)
-
-// let x;
-// {
-//   x = 1;
-//   console.log("first block", x);
+// if (true) {
+//   let x = 1;
 // }
+
+// console.log(x)
+
+let x;
+{
+  x = 1;
+  console.log("first block", x);
+}
 // {
 //   x = 2;
 //   console.log("second block", x);
