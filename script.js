@@ -1,120 +1,39 @@
-// const response = {
-//   count: 2,
-//   data: [{
-//     name: 'Luke Skywalker',
-//     films: ['Empire Strikes Back', 'The Force Awakens']
-//   }, {
-//     name: 'Han Solo',
-//     films: ['Empire Strikes Back', 'The Force Awakens']
-//   }]
-// };
+// // hoisting
+// var number;
 
-// const filterFn = function(element) {
-//   return element.name === 'Han Solo'
-// };
+// number = 1;
+// console.log(number);
+// // console.log(window);
+// var number = 1; // LHS RHS
 
+// number = 1;
 
-// const hanssolofilms = response.data.filter(filterFn);
-// console.log(hanssolofilms);
+// console.log(number);
 
-const numbers = [1, 2, 3, 4];
-// // return an array of numbers that can be divided by 2
+// number = 1;
+// console.log(number);
+// var number;
+// var myVariable
 
-// const filterFun = function(el) {
-//   return el % 2 === 0
+// console.log(myVariable);
+// myVariable = 2;
+
+// var x = 3;
+// if (true) {
+//   var x = 2;
+//   console.log(x)
 // }
-// const divisibleBy2 = numbers.filter(filterFun);
-// console.log(divisibleBy2);
+// console.log(x)
 
-// const sum = numbers.reduce(function(prev, current) {
-//   console.log(prev, current)
-//   return prev + current
-// })
-// console.log(sum);
+var a = [];
+// let a = [];
 
-// const numbers = [1, 2, 3];
-// const mapperFunction = function(elements) {
-//   return elements + 5
-// };
-// const newNumbers = numbers.map(mapperFunction);
-// console.log(newNumbers)
-
-// const numbers = [0, 1, 2];
-// const mappingFunction = function(number) {
-//   return number * number;
-// };
-// const mappingFunction = number => number * number;
-
-// const newArray = numbers.map(mappingFunction);
-// console.log(newArray);
-
-// const x = () => 'Hello'; // implicit return
-
-// const x = function() {
-//   return 'Hello';
-// }
-
-// const y = a => a; // implicit return
-
-// const y = function(a) {
-//   return a;
-// };
-
-// const z = (a, b = 1) => a + b; // implicit return
-
-// const z = function(a, b = 1) {
-//   return a + b;
-// };
-
-// const m = function(a, b) {
-//   if (a < 1) {
-//     return a + b
-//   }
-//   return a - b;
-// };
-
-// const m = (a, b) => { // explicit return
-//   if (a < 1) {
-//     return a + b;
-//   }
-//   return a - b;
-// }
-// const greet = function(name, age) {
-//   return {
-//     name,
-//     age
-//   }
-// }
-// const greet = (name, age) => {
-//   return {
-//     name,
-//     age
-//   }
-// }
-
-// const greet = (name, age) => ({ // implicit return
-//   name,
-//   age
-// });
-
-// console.log(
-//   greet('Steve', 18)
-// );
-
-// const quotient = {
-//   numbers: [1, 2, 3, 4, 5, 6, 7],
-//   results: [],
-//   divideFn: function(divisor) {
-//     return this.numbers.map((number) => {
-//       if (number % divisor === 0) {
-//         console.log(this)
-//         return this.results.push(number);
-//       }
-//     })
-//   }
-// };
-// quotient.divideFn(3);
-// console.log(quotient.results);
-// // const greet = (name, age) => {
-// //   return name.toUpperCase()
-// // };
+(function() {
+   'use strict';
+   for (let i = 0; i < 5; ++i) { // *** `let` works as expected *** // i = 5
+     a.push( function() {return i;} );
+   }
+}()); // IIFE "iffy"
+console.log(a.map(function(f) {
+  return f();
+}));
