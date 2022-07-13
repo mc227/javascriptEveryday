@@ -1,41 +1,35 @@
-// if (true) {
-//   let x = 1;
-// }
-
-// console.log(x)
-
-let x;
-{
-  x = 1;
-  console.log("first block", x);
-}
-{
-  x = 2;
-  console.log("second block", x);
-}
-x = 3;
-console.log("outside the block", x);
-
-if (1 === 1) {
-  let anotherNumber = 2
+if (true) {
+    // const num = 1;
+    var num = 1;
+    console.log(num);
+    num = 2; // Assignment to constant variable.
+    console.log(num); // 1 not printed
+  }
+    
   
-}
-
-// console.log(anotherNumber);
-
+//   const name = 'John';
+let name = 'John';
+name = 'Susan';
+console.log(name);
+  
+const myObj = {
+name: 'John'
+};
+  
+myObj.name = 'Susan';
+console.log(myObj);
+  
+  
 {
-  let y = 10;
-  console.log(y);
-//   let y = 20; // Uncaught SyntaxError: Identifier 'y' has already been declared
-  // y = 20;
-  console.log(y);
+    const myName = 'Steve'; 
+    const abc = 'Test';  
+    console.log(myName)
 }
-
-
-// let x = 1;
-try {
-  console.log('X in try', x)
-  throw new Error('error')
-} catch (error) {
-  console.log('X in catch', x)
-}
+  
+const person = Object.freeze({
+    name: 'John'
+});
+  
+person.name = 'Samuel';
+person.age = 23;
+console.log(person.name, person.age);
