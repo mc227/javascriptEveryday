@@ -1,61 +1,131 @@
-const numbers = [1, 2, 3, 4, 5, 6];
-// console.log(numbers.length);
-
-// for loop
-// for (let i = 0; i < numbers.length; i++) {
-//   console.log(numbers[i]);
+// function definition
+// function hello() {
+//   // function body
+//   return 'Hello';
 // }
 
-// for...of loop
-// for (let num of numbers) {
-//   console.log(num);
+// console.log(hello());
+
+// function ohHi() {
+//     // function body
+//     return "Oh, Hi!!!"
 // }
 
-// do-while loop
-// let i = 0;
-// do {
-//  // i = i + 1 -> i += 1 -> i++ ||||| i = i - 1 -> i -= 1 -> i--
-//   console.log(numbers[i]);
-//   // i += 1;
-//   i++;
-// } while (i < numbers.length)
+// console.log(ohHi());
 
-// while loop
-// let n = 0;
-// let square;
-// while (n < 3) {
-//   n++; // n = n + 1 = n += 1 = n++ ++ will always increment by one - google: ++n | n++ (pre-increment and post increment)
-//   square = n * n;
-//   console.log(square);
+// ES6+
+// // plus "template literal syntax"
+// function hello(who, lang = 'en') {
+//   if (lang === 'en') {
+//     // return 'Hello ' + who + '!';
+//     return `Hello ${who}!`
+//   } else if (lang === 'es') {
+//     return 'Hola ' + who + '!';
+//   } else {
+//     return 'Yo ' + who + '!'
+//   }
 // }
 
-const person = {
-  name: 'Steve',
-  age: 30,
-  hobbies: ['waterpolo', 'reading']
-};
+// console.log(hello('Sam'));
 
-// "for...in" loop
-// for (let prop in person) {
-//   console.log(prop + ' has this value: ' + person[prop])
-// }
-
-// "for...of" loop (ES6+)
-// const nums = [1, 2, 3, 4];
-// for (let num of nums) {
-//   console.log(num)
-// }
-for (let hobby of person.hobbies) {
-  console.log(hobby);
+function sumMyNumbers() {
+  console.log(arguments); // lists the args for the function
+  return Array.prototype.reduce.call(arguments, function(a, b) {
+    return a + b
+  })
 }
 
-for (let i = 0; i < person.hobbies.length; i++) {
-  console.log(person.hobbies[i])
-}
+console.log(
+  sumMyNumbers(1, 2, 3)
+);
 
-console.log(Object.keys(person).slice(0, 2)) // first 2 props
-console.log(Object.values(person).slice(0, 2)) // first 2 values
-for (let x of Object.keys(person).slice(0, 2)) {
-  console.log(person[x])
-}
+// Rest (...) Params
+// function sumMyNumbers(...numbers) {
+//   // numbers --> Array
+//   console.log(numbers)
+//   return numbers.reduce((sum, element) => sum + element);
+// }
+// console.log(sumMyNumbers(1, 2, 4, 50, 1, 1, 2, 45, 213, 12));
 
+// Spread / Object Destructuring in functions
+// const person = {
+//     name: 'John',
+//     age: 23
+//   };
+  
+  // function greet(obj) {
+  //   return `Hi ${obj.name}`
+  // }
+  
+  // console.log(greet(person));
+  
+  
+  // function greet({ name, age }) { // we know that the parameter is going to be the person object
+  //   return `Hi ${name} you are ${age} years old`;
+  // }
+  
+  // console.log(greet(person));
+  
+  // function expression (named)
+  // const hello = function() {
+  //   return 'Hello'
+  // };
+  // console.log(hello());
+  
+  // const numbers = [1, 2];
+  // const mapperFunction = function(elements) {
+  //   return elements + 5;
+  // }
+  // const newNumbers = numbers.map(mapperFunction);
+  // console.log(newNumbers);
+  
+  // const a = numbers.forEach(mapperFunction);
+  // console.log(a);
+  
+  // const mapperFunction = function(elements) { 
+  //   return elements * 2;
+  // };
+  // const newNumbers = numbers.map(mapperFunction);
+  // console.log(newNumbers);
+  
+  // const n = [1, 2];
+  // // const abc = function(element) {
+  // //   console.log(element);
+  // // };
+  // // n.forEach(abc); // .forEach() does not return anything
+  
+  // const newArray = n.map(function(element) {
+  //   return element + 10;
+  // }); // .map() returns a new array
+  // console.log(newArray);
+  
+  // const response = {
+  //   count: 2,
+  //   data: [{
+  //     name: 'Luke Skywalker',
+  //     films: ['Empire Strikes Back', 'The Force Awakens']
+  //   }, {
+  //     name: 'Han Solo',
+  //     films: ['Empire Strikes Back', 'The Force Awakens']
+  //   }]
+  // };
+  
+  // const filterFn = function(element) {
+  //   return element.name === 'Han Solo'
+  // };
+  
+  // const hanssolofilms = response.data.filter(filterFn);
+  // console.log(hanssolofilms);
+  
+//   const numbers = [1, 2, 3, 4];
+//   // return an array of numbers that can be divided by 2
+//   const filterFun = function(el) {
+//     return el % 2 === 0
+//   }
+//   const divisibleBy2 = numbers.filter(filterFun);
+//   console.log(divisibleBy2);
+  
+//   const sum = numbers.reduce(function(prev, current) {
+//     return prev * current
+//   })
+//   console.log(sum);
