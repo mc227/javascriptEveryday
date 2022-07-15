@@ -1,98 +1,134 @@
-/*
-data-structures(array)
-*/ 
+// const person = {
+//   name: 'James Bond'
+// };
 
-// Why did the programmer quit their job?
-// They didn't get arrays (a raise...lol)
+// console.log(person.name); // dot-walking
 
-const numbers = [1, 2, 3, 4, 5, 6, 7]; // first element is accessible at index 0
-const x = [1, 'b', true, { a: 'hello' }];
-console.log(numbers[1]);
+// const person = {
+//   name: 'Steve',
+//   age: 30,
+//   hobbies: ['waterpolo', 'reading'], // person.hobbies.length === 2
+//   address: {
+//     zip: 1234,
+//     street: 'John St, London'
+//   },
+//   isAdmin: false,
+//   'favourite food': 'apple',
+//   // the below is ES5
+//   // greet: function(name) {
+//   //   return 'Hello ' + name;
+//   //   // return `Hello ${name}!`;
+//   // },
+//   // the below is ES6
+//   greet(name) {
+//     return `Hello ${name}!`; // template literal syntax
+//   },
+// };
 
-const newNumbers = numbers.slice(2, 7); // slice start index, end index
-console.log(newNumbers)
-console.log(numbers)
-console.log(numbers.splice(0, 4)); // start index, length
-console.log(numbers);
-console.log(numbers.pop());
-console.log(numbers);
-numbers.push(4444)
-console.log(numbers);
-numbers.push(123)
-console.log(numbers)
-console.log(newNumbers)
-console.log(numbers);
-console.log(numbers[3]);
-console.log(numbers[1])
+// console.log(person.greet('John'))
 
-console.log(numbers.length)
-delete numbers[1]
-console.log(numbers.length)
-console.log(numbers)
+// const street = person.address.street; // dot walking
+// console.log(street);
+// const hobbies = person.hobbies;
+// console.log(hobbies);
+// const favFood = person['favourite food'];
+// console.log(favFood);
+
+// ES6 = ECMA2015 = ECMA-2015 = ECMA 2015 = ES 2015 (Object Destructuring)
+// let name = person.name;
+// const age = person.age;
+// console.log(name, age);
+
+// const { name, age, isAdmin } = person;
+// console.log(name, age, isAdmin);
+// const { name: firstName, age: myAge } = person;
+// console.log(firstName, myAge);
 
 
-// const a = numbers.splice(0, 2)
-// console.log(numbers);
-// console.log(numbers.length)
+// REST API / JSON.parse() JSON.stringify()
+// const response = {
+//   count: 2,
+//   data: [{
+//     name: 'Luke Skywalker',
+//     films: ['Empire Strikes Back', 'The Force Awakens']
+//   }, {
+//     name: 'Han Solo',
+//     films: ['Empire Strikes Back', 'The Force Awakens']
+//   }]
+// };
+// const { count, data: [{ name: characterName, films: [firstFilm, secondFilm] }]} = response;
+// console.log(characterName, secondFilm);
 
-// numbers[0] = 10
-// numbers[18] = 15;
-// console.log(numbers)
-
-// numbers.push(15)
-// console.log(numbers);
-
-// const a = [1, 2];
-// const b = [3, 4];
-// const x = [5, 6];
-
-// const c = a.concat(b).concat(x);
-// console.log(c)
+// const { data } = response;
+// const hanSolo = data.filter(data => data.name === 'Han Solo'); // filter: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+// console.log(hanSolo)
+  
+// ES 5
+// const name = 'Steve';
+// const age = 30;
+// const myObj = {
+//   name: name,
+//   age: age
+// }
+// // console.log("here")
+// console.log(myObj);
 // ES6
-// const c = [...a, ...b, ...x];
-// console.log(c);
+// const x = {
+//   name,
+//   age
+// };
+// console.log(x);
 
-// adding a new element to the beginning of an array
-// const num = [1, 2];
-// num.unshift(0);
-// console.log(num);
+// ES 6
+// function nameMe(name) {
+//     return {
+//         [name.toLowerCase()]: {
+//             message: `My name is ${name}`
+//         }
+//     };
+// }
 
-// console.log(numbers);
-// console.log(numbers.at(0))
-// console.log(numbers.at(-1)) // console.log(numbers[numbers.length - 1])
+// console.log(nameMe('John'));
+  
+  // ES 6
+// const x = {
+//     name: 'Jack',
+//     greet() {
+//         return `Hi ${this.name}!`
+//     }
+// };
+  
+// console.log(x.greet());
 
-// console.log(a.includes(2))
 
-// ES6 array destructuring
-
-// const x = [1, 2];
-// const x1 = x[0]; // 1
-// const x2 = x[1]; // 2
-
-// const [x1, x2] = x;
-// console.log(x1, x2);
-
-// const names = ['John', 'Kate'];
-// const [name1, name2] = names;
-// console.log(name2)
-
-// map, filter, reduce
-
-// const numbers = [1, 2, 3, 4];
-// const squared = numbers.map(function(element) {
-//   return element * element; 
-// });
-// console.log(squared);
-
-// const filtered = numbers.filter(function(element) {
-//   return element % 2 === 0
-// })
-// console.log(filtered);
-
-// reducing the values of the array to a single value
-// const summed = numbers.reduce(function(rollingSum, element) {
-//   console.log('element is', element);
-//   console.log('rollingSum is', rollingSum);
-//   return rollingSum * element;
-// });
-// console.log(summed);
+const person = {
+    name: 'James Bond',
+};
+  
+console.log(
+// Object.keys(person),
+// Object.values(person),
+Object.entries(person)
+)
+  
+  Object.defineProperty(person, 'name', {
+    enumerable: true,
+    configurable: false,
+    get() {
+      return 'Redacted by MI5'
+    }
+    // set()
+  });
+  
+  person.name = 'M';
+  console.log(person.name);
+  
+  const x = 'propKey';
+  
+  const myObj = {
+    [x]: 'whatever is my value'
+  };
+  
+  console.log(myObj);
+  
+  
