@@ -1,87 +1,50 @@
-// const numbers = [0, 1, 2];
-// // const mappingFunction = function(number) {
-// //   return number * number;
-// // };
-// const mappingFunction = number => number * number;
+// // https://developer.mozilla.org/en-US/docs/Glossary/Truthy
+// // https://developer.mozilla.org/en-US/docs/Glossary/Falsy
 
-// const newArray = numbers.map(mappingFunction);
-// console.log(newArray);
+// // Strings
+// const a = String(999); // explicit string "999"
+// console.log(typeof a);
 
-// const x = () => 'Hello'; // implicit return
+// const b = 999 + '0'; // implicit string --> "999"
+// console.log(typeof b);
 
-// const x = function() {
-//   return 'Hello';
-// }
+// // Primitives can be converted to strings
+// String(true); // "true"
+// console.log(typeof String(true));
 
-// console.log(x());
+// // For booleans
+// Boolean(10); // explicit
+// !!10 // implicit (logical operator)
+// if (10) { } // implicit (logical operator) --> if (true)
 
-// const y = a => a; // implicit return
+// // Numbers
+// Number('999'); // explicit typeof Number('999') // number
+// console.log(typeof +'999'); // implicit
 
-// const y = function(a) {
-//   return a;
-// };
+// // non primitive type coercion needs to first convert to a primitive value, then to the final type
+// // non primitives are coerced to true
+// // objects are converted to primitives via [[ToPrimitive]] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toPrimitive)
+// true + false; // 1 -> 1 + 0
+// console.log(true + false)
+// 20 / "2"; // 10 -> 20 / 2
+// console.log(20/"2")
+// "1" + 1 + 1; // "111" ->  "1" + "1" + "1" -- string concatination
+// console.log("1" + 1 + 1)
+// 1 + 1 + "1"; // "21" -> 1+1 = 2 ... 2 + "1" -> "21"
+// console.log(1 + 1 + "1")
+// [1] > null; // true
+// console.log(typeof [1])
+// 'true' == true; // false -> NaN == 1 -> false
+// console.log('true' == true)
+// 'false' == false; // false -> NaN == 0 -> false
+// console.log('false' == false)
+// null == ''; // false (null is only equal to null or undefined)
 
-// const z = (a, b = 1) => a + b; // implicit return
+// !+[]+[]+![]; // 'truefalse' -> (!+[]) + [] + (![]) -> !0 + [] + false = true + [] + false = true + '' + false 
+// // just for fun
+// console.log(('b' + 'a' + + 'a' + 'a').toLowerCase()); // "banana"
 
-// const z = function(a, b = 1) {
-//   return a + b;
-// };
-
-// const m = function(a, b) {
-//   if (a < 1) {
-//     return a + b
-//   }
-//   return a - b;
-// };
-
-// const m = (a, b) => { // explicit return
-//   if (a < 1) {
-//     return a + b;
-//   }
-//   return a - b;
-// }
-
-// const greet = function(name, age) {
-//   return {
-//     name,
-//     age
-//   }
-// }
-
-// const greet = (name, age) => {
-//   return {
-//     name,
-//     age
-//   }
-// }
-
-// const greet = (name, age) => ({ // implicit return
-//   name,
-//   age
-// });
-
-// console.log(
-//   greet('Steve', 18)
-// );
-
-// const quotient = {
-//   numbers: [1, 2, 3, 4, 5, 6, 7],
-//   results: [],
-//   divideFn: function(divisor) {
-//     return this.numbers.map((number) => {
-//       if (number % divisor === 0) {
-//         console.log(this)
-//         return this.results.push(number);
-//       }
-//     })
-//   }
-// };
-
-// quotient.divideFn(3);
-// console.log(quotient.results);
-
-
-const greet = (name, age) => {
-  return name.toUpperCase()
-};
-
+// console.log(1 == "1"); // value comparison, true
+// console.log(1 === "1"); // value AND type, false
+// console.log(1 === 1); // true
+// console.log(1 !== 1); // false;
