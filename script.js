@@ -28,16 +28,16 @@
 
 // console.log(hello('Sam'));
 
-function sumMyNumbers() {
-  console.log(arguments); // lists the args for the function
-  return Array.prototype.reduce.call(arguments, function(a, b) {
-    return a + b
-  })
-}
+// function sumMyNumbers() {
+//   console.log(arguments); // lists the args for the function
+//   return Array.prototype.reduce.call(arguments, function(a, b) {
+//     return a + b
+//   })
+// }
 
-console.log(
-  sumMyNumbers(1, 2, 3)
-);
+// console.log(
+//   sumMyNumbers(1, 2, 3)
+// );
 
 // Rest (...) Params
 // function sumMyNumbers(...numbers) {
@@ -48,51 +48,51 @@ console.log(
 // console.log(sumMyNumbers(1, 2, 4, 50, 1, 1, 2, 45, 213, 12));
 
 // Spread / Object Destructuring in functions
-// const person = {
-//     name: 'John',
-//     age: 23
-//   };
+const person = {
+    name: 'John',
+    age: 23
+};
+
+// function greet(obj) {
+//     return `Hi ${obj.name}`
+// }
   
-  // function greet(obj) {
-  //   return `Hi ${obj.name}`
-  // }
-  
-  // console.log(greet(person));
+// console.log(greet(person));
   
   
-  // function greet({ name, age }) { // we know that the parameter is going to be the person object
-  //   return `Hi ${name} you are ${age} years old`;
-  // }
+function greet({ name, age }) { // we know that the parameter is going to be the person object
+    return `Hi ${name} you are ${age} years old`;
+}
+
+console.log(greet(person));
   
-  // console.log(greet(person));
+// // function expression (named)
+const hello = function() {
+    return 'Hello'
+};
+console.log(hello());
   
-  // function expression (named)
-  // const hello = function() {
-  //   return 'Hello'
-  // };
-  // console.log(hello());
+const numbers = [1, 2];
+// const mapperFunction = function(elements) {
+//     return elements + 5;
+// }
+// const newNumbers = numbers.map(mapperFunction);
+// console.log(newNumbers);
   
-  // const numbers = [1, 2];
-  // const mapperFunction = function(elements) {
-  //   return elements + 5;
-  // }
-  // const newNumbers = numbers.map(mapperFunction);
-  // console.log(newNumbers);
+const a = numbers.forEach(mapperFunction);
+console.log(a);
   
-  // const a = numbers.forEach(mapperFunction);
-  // console.log(a);
-  
-  // const mapperFunction = function(elements) { 
-  //   return elements * 2;
-  // };
-  // const newNumbers = numbers.map(mapperFunction);
-  // console.log(newNumbers);
-  
-  // const n = [1, 2];
-  // // const abc = function(element) {
-  // //   console.log(element);
-  // // };
-  // // n.forEach(abc); // .forEach() does not return anything
+const mapperFunction = function(elements) { 
+  return elements * 2;
+};
+const newNumbers = numbers.map(mapperFunction);
+console.log(newNumbers);
+
+const n = [1, 2];
+// const abc = function(element) {
+//   console.log(element);
+// };
+// n.forEach(abc); // .forEach() does not return anything
   
   // const newArray = n.map(function(element) {
   //   return element + 10;
